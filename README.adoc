@@ -1,0 +1,46 @@
+= Value Objects in Java Talk
+:toc: macro
+
+Demo code about value objects and how to create them in Java.
+
+toc::[]
+
+== Purpose
+
+This source demonstrates how to create value objects in Java using various annotation processors.
+
+== Evaluated Libraries
+
+- https://github.com/google/auto/blob/master/value/userguide/index.md[AutoValue]
+- https://freebuilder.inferred.org[FreeBuilder]
+- https://immutables.github.io[Immutables]
+- https://projectlombok.org[Project Lombok]
+
+Also, simple https://www.scala-lang.org[Scala] and https://kotlinlang.org[Kotlin] examples are included for
+demonstration purposes.
+
+== Running
+
+=== Prerequisites
+
+You need https://github.com/bazelbuild/bazelisk[Bazelisk] installed, with https://brew.sh[HomeBrew]
+just use [source,shell]`brew install bazelbuild/tap/bazelisk`.
+
+Also, Java needs to be https://adoptopenjdk.net/installation.html[installed].
+
+=== Main App
+
+The main app simply demonstrates the `toString` method with a simple structure. Run it with
+[source,shell]
+----
+bazel run //:value-comparison
+----
+
+=== Tests
+
+To run all tests, use
+
+[source,shell]
+----
+bazel test //...
+----
