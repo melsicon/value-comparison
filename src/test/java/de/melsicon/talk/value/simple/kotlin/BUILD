@@ -16,6 +16,14 @@ java_library(
 )
 
 java_test(
+    name = "EmailAddressTest",
+    size = "small",
+    runtime_deps = [
+        ":tests",
+    ],
+)
+
+java_test(
     name = "PersonTest",
     size = "small",
     runtime_deps = [

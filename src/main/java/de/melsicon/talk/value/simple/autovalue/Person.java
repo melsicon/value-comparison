@@ -3,9 +3,9 @@ package de.melsicon.talk.value.simple.autovalue;
 import com.google.auto.value.AutoValue;
 import com.google.common.collect.ImmutableList;
 import com.google.errorprone.annotations.Immutable;
-import org.checkerframework.checker.nullness.qual.Nullable;
-
+import java.util.Arrays;
 import java.util.Optional;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /** Representation of a person. */
 @Immutable
@@ -19,7 +19,8 @@ public abstract class Person {
    * @return A new builder
    */
   public static Builder builder() {
-    return new AutoValue_Person.Builder().email();
+    // Provide a default for email, making it optional
+    return new AutoValue_Person.Builder().email(new EmailAddress[] {});
   }
 
   /**
@@ -41,7 +42,7 @@ public abstract class Person {
    *
    * @return An immutable list of email addresses
    */
-  public abstract ImmutableList<String> email();
+  public abstract ImmutableList<EmailAddress> email();
 
   /** Builder of a person instance */
   @AutoValue.Builder
@@ -69,7 +70,7 @@ public abstract class Person {
      * @param email A list of emails
      * @return This builder
      */
-    public abstract Builder email(Iterable<String> email);
+    public abstract Builder email(Iterable<EmailAddress> email);
 
     /**
      * Email addresses this person is reachable under. Optional.
@@ -77,7 +78,19 @@ public abstract class Person {
      * @param email Emails
      * @return This builder
      */
-    public abstract Builder email(String... email);
+    public abstract Builder email(EmailAddress... email);
+
+    /**
+     * Email addresses this person is reachable under. Optional. Convenience function mapping {@link
+     * String} to {@link EmailAddress}
+     *
+     * @param email Emails
+     * @return This builder
+     */
+    public final Builder email(String... email) {
+      return email(
+          Arrays.stream(email).map(EmailAddress::of).collect(ImmutableList.toImmutableList()));
+    }
 
     /**
      * Constructs a new person with the given parameters.

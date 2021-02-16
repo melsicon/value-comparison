@@ -16,8 +16,18 @@ This source demonstrates how to create value objects in Java using various annot
 - https://immutables.github.io[Immutables]
 - https://projectlombok.org[Project Lombok]
 
-Also, simple https://www.scala-lang.org[Scala] and https://kotlinlang.org[Kotlin] examples are included for
-demonstration purposes.
+Also, simple https://www.scala-lang.org[Scala] and https://kotlinlang.org[Kotlin] examples are
+included for demonstration purposes.
+
+== Structure
+
+In `+de.melsicon.talk.value.simple.*+` We have simple classes, one `+EmailAddress+` which demonstrates
+the power of being able to check value objects for consistency durin construction and `+Person+`,
+which show how different libraries handle optional parameters and documentation propagation.
+
+`+de.melsicon.talk.value.inheritance.*+` and `+de.melsicon.talk.value.composition.*+` demonstrates
+the https://en.wikipedia.org/wiki/Composition_over_inheritance[composition over inheritance]
+principle and why value objects can not meaningfully extend each other.
 
 == Running
 
@@ -25,6 +35,8 @@ demonstration purposes.
 
 You need https://github.com/bazelbuild/bazelisk[Bazelisk] installed, with https://brew.sh[HomeBrew]
 just use [source,shell]`brew install bazelbuild/tap/bazelisk`.
+See also https://docs.bazel.build/versions/4.0.0/install-bazelisk.html[Installing Bazel using
+Bazelisk].
 
 Also, Java needs to be https://adoptopenjdk.net/installation.html[installed].
 

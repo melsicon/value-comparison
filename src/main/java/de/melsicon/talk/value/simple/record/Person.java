@@ -1,12 +1,11 @@
 package de.melsicon.talk.value.simple.record;
 
 import com.google.common.collect.ImmutableList;
+import java.util.Objects;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
-import java.util.Objects;
-
 /** Representation of a person. */
-public record Person(String givenName, @Nullable String surname, ImmutableList<String> email) {
+public record Person(String givenName, @Nullable String surname, ImmutableList<EmailAddress> email) {
   /**
    * Creates a Person.
    *

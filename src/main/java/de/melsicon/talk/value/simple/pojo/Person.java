@@ -2,10 +2,11 @@ package de.melsicon.talk.value.simple.pojo;
 
 import com.google.common.collect.ImmutableList;
 import com.google.errorprone.annotations.Immutable;
-import org.checkerframework.checker.nullness.qual.Nullable;
-
+import java.util.Arrays;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.StringJoiner;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /** Representation of a person. */
 @Immutable
@@ -14,7 +15,7 @@ public final class Person {
 
   private final @Nullable String surname;
 
-  private final ImmutableList<String> email;
+  private final ImmutableList<EmailAddress> email;
 
   /**
    * Creates a Person.
@@ -23,10 +24,26 @@ public final class Person {
    * @param surname Set the surname. Optional, i.e for royalty.
    * @param email Email addresses this person is reachable under. Optional.
    */
-  public Person(String givenName, @Nullable String surname, @Nullable Iterable<String> email) {
+  public Person(
+      String givenName, @Nullable String surname, @Nullable Iterable<EmailAddress> email) {
     this.givenName = Objects.requireNonNull(givenName, "givenName is a required parameter");
     this.surname = surname;
     this.email = email == null ? ImmutableList.of() : ImmutableList.copyOf(email);
+  }
+
+  /**
+   * Creates a Person.
+   *
+   * @param givenName Set the given name. Required.
+   * @param surname Set the surname. Optional, i.e for royalty.
+   * @param email Email addresses this person is reachable under. Optional.
+   * @return A person.
+   */
+  public static Person of(String givenName, @Nullable String surname, String... email) {
+    return new Person(
+        givenName,
+        surname,
+        Arrays.stream(email).map(EmailAddress::of).collect(ImmutableList.toImmutableList()));
   }
 
   /**
@@ -52,7 +69,7 @@ public final class Person {
    *
    * @return An immutable list of email addresses
    */
-  public ImmutableList<String> email() {
+  public ImmutableList<EmailAddress> email() {
     return email;
   }
 
@@ -79,8 +96,14 @@ public final class Person {
 
   @Override
   public String toString() {
+    var emails =
+        email.stream()
+            .reduce(
+                new StringJoiner(", "),
+                (joiner, email) -> joiner.add(email.toString()),
+                StringJoiner::merge);
     return String.format(
         "Person(givenName=%s surname=%s email=[%s])",
-        givenName, surname == null ? "(null)" : surname, String.join(",", email));
+        givenName, surname == null ? "(null)" : surname, emails);
   }
 }

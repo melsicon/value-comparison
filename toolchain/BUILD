@@ -42,6 +42,7 @@ java_package_configuration(
         "-Xep:AndroidJdkLibsChecker:OFF",
         "-Xep:StaticOrDefaultInterfaceMethod:OFF",
         "-Xep:NoFunctionalReturnType:OFF",
+        "-Xep:ParameterPackage:OFF",
         "-Xep:WildcardImport:OFF",
         "-Xep:NullAway:ERROR",
         "-XepOpt:NullAway:AnnotatedPackages=de.melsicon",

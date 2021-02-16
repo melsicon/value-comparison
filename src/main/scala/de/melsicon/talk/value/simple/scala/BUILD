@@ -6,6 +6,7 @@ scala_library(
     scalacopts = ["-deprecation"],
     visibility = ["//visibility:public"],
     deps = [
+        "@maven//:commons_validator_commons_validator",
         "@maven//:org_checkerframework_checker_qual",
     ],
 )

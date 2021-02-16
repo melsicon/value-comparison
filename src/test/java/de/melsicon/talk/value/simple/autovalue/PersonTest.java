@@ -1,10 +1,10 @@
 package de.melsicon.talk.value.simple.autovalue;
 
-import org.junit.Test;
-
 import static com.google.common.truth.Truth.assertThat;
 import static com.google.common.truth.Truth8.assertThat;
 import static org.junit.Assert.assertThrows;
+
+import org.junit.Test;
 
 public final class PersonTest {
   @Test
@@ -16,7 +16,8 @@ public final class PersonTest {
 
     assertThat(person.surname()).hasValue("Pan");
 
-    assertThat(person.email()).containsExactly("peter.pan@example.com");
+    assertThat(person.email())
+        .containsExactly(EmailAddress.builder().address("peter.pan@example.com").build());
   }
 
   @Test

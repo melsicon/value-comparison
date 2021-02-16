@@ -10,5 +10,5 @@ package de.melsicon.talk.value.simple.kotlin
 data class Person(
     val givenName: String,
     val surname: String?,
-    val email: List<String> = listOf()
+    val email: List<EmailAddress> = listOf()
 )

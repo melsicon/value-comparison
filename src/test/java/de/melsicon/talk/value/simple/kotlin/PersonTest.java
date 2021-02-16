@@ -1,22 +1,21 @@
 package de.melsicon.talk.value.simple.kotlin;
 
-import org.junit.Test;
-
-import java.util.List;
-
 import static com.google.common.truth.Truth.assertThat;
 import static org.junit.Assert.assertThrows;
+
+import java.util.List;
+import org.junit.Test;
 
 public final class PersonTest {
   @Test
   public void creation() {
-    var person = new Person("Peter", "Pan", List.of("peter.pan@example.com"));
+    var person = new Person("Peter", "Pan", List.of(new EmailAddress("peter.pan@example.com")));
 
     assertThat(person.getGivenName()).isEqualTo("Peter");
 
     assertThat(person.getSurname()).isEqualTo("Pan");
 
-    assertThat(person.getEmail()).containsExactly("peter.pan@example.com");
+    assertThat(person.getEmail()).containsExactly(new EmailAddress("peter.pan@example.com"));
   }
 
   @Test

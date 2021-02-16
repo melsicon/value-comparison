@@ -2,18 +2,16 @@ package de.melsicon.talk.value.simple.lombok;
 
 import com.google.common.collect.ImmutableList;
 import com.google.errorprone.annotations.Immutable;
+import java.util.Optional;
 import lombok.Builder;
 import lombok.NonNull;
 import lombok.Singular;
 import lombok.Value;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
-import java.util.Optional;
-
 /** Representation of a person. */
 @SuppressWarnings({
   "FieldMissingNullable",
-  "MissingSummary",
   "MultiVariableDeclaration",
   "ObjectToString",
   "Var",
@@ -33,7 +31,7 @@ public class Person {
 
   /** Email addresses this person is reachable under. */
   @Singular("email")
-  ImmutableList<String> email;
+  ImmutableList<EmailAddress> email;
 
   /**
    * The surname name of this person. Optional, i.e for royalty.

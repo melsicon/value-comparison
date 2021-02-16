@@ -4,13 +4,31 @@ import java.util
 
 import org.checkerframework.checker.nullness.qual.Nullable
 
+import scala.annotation.varargs
 import scala.jdk.CollectionConverters._
 import scala.jdk.OptionConverters._
 
+object Person {
+
+  /** Java API: Construct a person
+    *
+    * @param givenName The given name. Required.
+    * @param surname   The surname. Optional, i.e for royalty.
+    * @param email     Email addresses this person is reachable under. Optional.
+    */
+  @varargs
+  def of(givenName: String, @Nullable surname: String, email: String*): Person =
+    Person(
+      util.Objects.requireNonNull(givenName),
+      Option(surname),
+      email.map(EmailAddress.of)
+    )
+}
+
 final case class Person(
     givenName: String,
-    surname: Option[String],
-    email: Seq[String]
+    surname: Option[String] = None,
+    email: Seq[EmailAddress] = Seq()
 ) {
 
   /** Java API: Construct a person
@@ -22,7 +40,7 @@ final case class Person(
   def this(
       givenName: String,
       @Nullable surname: String,
-      @Nullable email: java.lang.Iterable[String]
+      @Nullable email: java.lang.Iterable[EmailAddress]
   ) = {
     this(
       util.Objects.requireNonNull(givenName),
@@ -47,5 +65,5 @@ final case class Person(
     *
     * @return An immutable list of email addresses
     */
-  def getEmail: util.List[String] = email.asJava
+  def getEmail: util.List[EmailAddress] = email.asJava
 }

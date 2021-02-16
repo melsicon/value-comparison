@@ -1,23 +1,27 @@
 package de.melsicon.talk.value.simple.lombok;
 
-import org.junit.Test;
-
 import static com.google.common.truth.Truth.assertThat;
 import static com.google.common.truth.Truth8.assertThat;
 import static org.junit.Assert.assertThrows;
+
+import org.junit.Test;
 
 @SuppressWarnings("NullAway")
 public final class PersonTest {
   @Test
   public void creation() {
     var person =
-        Person.builder().givenName("Peter").surname("Pan").email("peter.pan@example.com").build();
+        Person.builder()
+            .givenName("Peter")
+            .surname("Pan")
+            .email(EmailAddress.of("peter.pan@example.com"))
+            .build();
 
     assertThat(person.getGivenName()).isEqualTo("Peter");
 
     assertThat(person.getSurname()).hasValue("Pan");
 
-    assertThat(person.getEmail()).containsExactly("peter.pan@example.com");
+    assertThat(person.getEmail()).containsExactly(EmailAddress.of("peter.pan@example.com"));
   }
 
   @Test

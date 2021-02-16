@@ -93,6 +93,7 @@ maven_install(
         "com.google.flogger:flogger:0.5.1",
         "com.google.guava:guava:30.1-jre",
         "com.uber.nullaway:nullaway:0.8.0",
+        "commons-validator:commons-validator:1.7",
         "org.checkerframework:checker-qual:3.10.0",
         "org.checkerframework:checker:3.10.0",
         "org.immutables.dependency:utility:2.8.0",

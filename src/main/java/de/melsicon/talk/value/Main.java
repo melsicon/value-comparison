@@ -1,13 +1,12 @@
 package de.melsicon.talk.value;
 
-import com.google.common.collect.ImmutableList;
 import com.google.common.flogger.FluentLogger;
-
 import java.util.List;
 
 public final class Main {
   private static final FluentLogger log = FluentLogger.forEnclosingClass();
   private static final String EMAIL = "peter.pan@example.com";
+  private static final String EMAIL2 = "wendy.darling@example.com";
   private static final String SURNAME = "Pan";
   private static final String GIVEN_NAME = "Peter";
 
@@ -27,7 +26,7 @@ public final class Main {
     return de.melsicon.talk.value.simple.autovalue.Person.builder()
         .givenName(GIVEN_NAME)
         .surname(SURNAME)
-        .email(EMAIL)
+        .email(EMAIL, EMAIL2)
         .build();
   }
 
@@ -35,7 +34,7 @@ public final class Main {
     return de.melsicon.talk.value.simple.freebuilder.Person.builder()
         .givenName(GIVEN_NAME)
         .surname(SURNAME)
-        .addEmail(EMAIL)
+        .addEmail(EMAIL, EMAIL2)
         .build();
   }
 
@@ -43,28 +42,33 @@ public final class Main {
     return de.melsicon.talk.value.simple.immutables.Person.builder()
         .givenName(GIVEN_NAME)
         .surname(SURNAME)
-        .addEmail(EMAIL)
+        .addEmail(EMAIL, EMAIL2)
         .build();
   }
 
   private static de.melsicon.talk.value.simple.kotlin.Person kotlin() {
-    return new de.melsicon.talk.value.simple.kotlin.Person(GIVEN_NAME, SURNAME, List.of(EMAIL));
+    return new de.melsicon.talk.value.simple.kotlin.Person(
+        GIVEN_NAME,
+        SURNAME,
+        List.of(
+            new de.melsicon.talk.value.simple.kotlin.EmailAddress(EMAIL),
+            new de.melsicon.talk.value.simple.kotlin.EmailAddress(EMAIL2)));
   }
 
   private static de.melsicon.talk.value.simple.lombok.Person lombok() {
     return de.melsicon.talk.value.simple.lombok.Person.builder()
         .givenName(GIVEN_NAME)
         .surname(SURNAME)
-        .email(EMAIL)
+        .email(de.melsicon.talk.value.simple.lombok.EmailAddress.of(EMAIL))
+        .email(de.melsicon.talk.value.simple.lombok.EmailAddress.of(EMAIL2))
         .build();
   }
 
   private static de.melsicon.talk.value.simple.pojo.Person pojo() {
-    return new de.melsicon.talk.value.simple.pojo.Person(
-        GIVEN_NAME, SURNAME, ImmutableList.of(EMAIL));
+    return de.melsicon.talk.value.simple.pojo.Person.of(GIVEN_NAME, SURNAME, EMAIL, EMAIL2);
   }
 
   private static de.melsicon.talk.value.simple.scala.Person scala() {
-    return new de.melsicon.talk.value.simple.scala.Person(GIVEN_NAME, SURNAME, List.of(EMAIL));
+    return de.melsicon.talk.value.simple.scala.Person.of(GIVEN_NAME, SURNAME, EMAIL, EMAIL2);
   }
 }
