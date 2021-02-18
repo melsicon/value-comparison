@@ -1,10 +1,10 @@
 package de.melsicon.talk.value.simple.freebuilder;
 
-import org.junit.Test;
-
 import static com.google.common.truth.Truth.assertThat;
 import static com.google.common.truth.Truth8.assertThat;
 import static org.junit.Assert.assertThrows;
+
+import org.junit.Test;
 
 public final class PersonTest {
   @Test

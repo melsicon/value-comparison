@@ -1,11 +1,10 @@
 package de.melsicon.talk.value.composition.freebuilder;
 
-import com.google.common.collect.ImmutableMap;
-import org.junit.Test;
-
-import java.util.Objects;
-
 import static com.google.common.truth.Truth.assertThat;
+
+import com.google.common.collect.ImmutableMap;
+import java.util.Objects;
+import org.junit.Test;
 
 public final class MovieTicketTest {
   private static final String MOVIE_NAME = "The Favourite";

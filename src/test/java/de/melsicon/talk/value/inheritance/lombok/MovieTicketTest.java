@@ -1,10 +1,10 @@
 package de.melsicon.talk.value.inheritance.lombok;
 
+import static com.google.common.truth.Truth.assertThat;
+
 import com.google.common.collect.ImmutableMap;
 import de.melsicon.talk.value.simple.lombok.Person;
 import org.junit.Test;
-
-import static com.google.common.truth.Truth.assertThat;
 
 public final class MovieTicketTest {
   private static final String MOVIE_NAME = "The Favourite";

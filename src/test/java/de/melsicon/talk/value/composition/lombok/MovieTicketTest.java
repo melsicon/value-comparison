@@ -1,12 +1,11 @@
 package de.melsicon.talk.value.composition.lombok;
 
+import static com.google.common.truth.Truth.assertThat;
+
 import com.google.common.collect.ImmutableMap;
 import de.melsicon.talk.value.simple.lombok.Person;
-import org.junit.Test;
-
 import java.util.Objects;
-
-import static com.google.common.truth.Truth.assertThat;
+import org.junit.Test;
 
 public final class MovieTicketTest {
   private static final String MOVIE_NAME = "The Favourite";

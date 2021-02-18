@@ -21,9 +21,10 @@ included for demonstration purposes.
 
 == Structure
 
-In `+de.melsicon.talk.value.simple.*+` We have simple classes, one `+EmailAddress+` which demonstrates
-the power of being able to check value objects for consistency durin construction and `+Person+`,
-which show how different libraries handle optional parameters and documentation propagation.
+In `+de.melsicon.talk.value.simple.*+` we have simple classes, one `+EmailAddress+` which
+demonstrates the power of being able to check value objects for consistency during construction and
+`+Person+`, which show how different libraries handle optional parameters and documentation
+propagation.
 
 `+de.melsicon.talk.value.inheritance.*+` and `+de.melsicon.talk.value.composition.*+` demonstrates
 the https://en.wikipedia.org/wiki/Composition_over_inheritance[composition over inheritance]
@@ -42,7 +43,9 @@ Also, Java needs to be https://adoptopenjdk.net/installation.html[installed].
 
 === Main App
 
-The main app simply demonstrates the `toString` method with a simple structure. Run it with
+The main app simply demonstrates the `toString` method with a simple structure.
+Run it with
+
 [source,shell]
 ----
 bazel run //:value-comparison
