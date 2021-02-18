@@ -16,8 +16,7 @@ public final class PersonTest {
 
     assertThat(person.surname()).hasValue("Pan");
 
-    assertThat(person.email())
-        .containsExactly(EmailAddress.builder().address("peter.pan@example.com").build());
+    assertThat(person.email()).containsExactly(EmailAddress.of("peter.pan@example.com"));
   }
 
   @Test

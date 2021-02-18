@@ -11,7 +11,6 @@ import lombok.Value;
   "MissingSummary",
   "MultiVariableDeclaration",
   "NullAway",
-  "ObjectToString",
   "ParameterName",
   "Var",
 })

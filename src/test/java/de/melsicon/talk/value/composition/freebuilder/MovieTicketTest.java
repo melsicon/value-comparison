@@ -1,7 +1,6 @@
 package de.melsicon.talk.value.composition.freebuilder;
 
 import com.google.common.collect.ImmutableMap;
-import de.melsicon.talk.value.simple.freebuilder.Person;
 import org.junit.Test;
 
 import java.util.Objects;
@@ -18,10 +17,11 @@ public final class MovieTicketTest {
   }
 
   private static ImmutableMap<MovieTicket, SoldMovieTicket> soldTickets() {
+    @SuppressWarnings("CheckReturnValue") // Modifying the Person.Builder
     var soldTicket =
         SoldMovieTicket.builder()
             .ticket(createTicket(SERIAL))
-            .owner(Person.builder().givenName("Charles").build())
+            .mutateOwner($ -> $.givenName("Charles"))
             .build();
 
     return ImmutableMap.of(soldTicket.ticket(), soldTicket);

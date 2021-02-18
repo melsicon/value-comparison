@@ -13,11 +13,6 @@ public final class EmailAddress {
 
   private final String address;
 
-  /**
-   * Creates an e-mail address.
-   *
-   * @param address the address.
-   */
   private EmailAddress(String address) {
     this.address = address;
     Preconditions.checkState(

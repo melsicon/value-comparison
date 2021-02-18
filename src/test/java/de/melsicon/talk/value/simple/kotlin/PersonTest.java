@@ -9,13 +9,13 @@ import org.junit.Test;
 public final class PersonTest {
   @Test
   public void creation() {
-    var person = new Person("Peter", "Pan", List.of(new EmailAddress("peter.pan@example.com")));
+    var person = new Person("Peter", "Pan", List.of(EmailAddress.of("peter.pan@example.com")));
 
     assertThat(person.getGivenName()).isEqualTo("Peter");
 
     assertThat(person.getSurname()).isEqualTo("Pan");
 
-    assertThat(person.getEmail()).containsExactly(new EmailAddress("peter.pan@example.com"));
+    assertThat(person.getEmail()).containsExactly(EmailAddress.of("peter.pan@example.com"));
   }
 
   @Test

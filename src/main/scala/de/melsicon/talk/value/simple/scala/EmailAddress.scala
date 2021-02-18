@@ -13,7 +13,7 @@ object EmailAddress {
   def of(address: String): EmailAddress = EmailAddress(address)
 }
 
-final case class EmailAddress(address: String) {
+final case class EmailAddress private (address: String) {
   require(
     EmailAddress.Validator.isValid(address),
     s"$address is not a valid e-mail address"

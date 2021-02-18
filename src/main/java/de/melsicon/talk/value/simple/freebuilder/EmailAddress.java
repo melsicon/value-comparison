@@ -7,8 +7,6 @@ import org.inferred.freebuilder.FreeBuilder;
 /** A (validated) e-mail address. */
 @FreeBuilder
 public abstract class EmailAddress {
-  private static final EmailValidator EMAIL_VALIDATOR = EmailValidator.getInstance();
-
   /* package */ EmailAddress() {}
 
   /**
@@ -18,16 +16,7 @@ public abstract class EmailAddress {
    * @return An e-mail address
    */
   public static EmailAddress of(String address) {
-    return builder().address(address).build();
-  }
-
-  /**
-   * Creates an e-mail address builder.
-   *
-   * @return A new builder
-   */
-  public static Builder builder() {
-    return new Builder();
+    return new Builder().address(address).build();
   }
 
   /**
@@ -38,7 +27,9 @@ public abstract class EmailAddress {
   public abstract String address();
 
   /** Builder of an e-mail address instance */
-  public static class Builder extends EmailAddress_Builder {
+  /* package */ static class Builder extends EmailAddress_Builder {
+    private static final EmailValidator EMAIL_VALIDATOR = EmailValidator.getInstance();
+
     @Override
     public EmailAddress build() {
       var emailAddress = super.build();

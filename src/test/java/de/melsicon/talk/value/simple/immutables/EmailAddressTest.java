@@ -15,8 +15,7 @@ public class EmailAddressTest {
 
   @Test
   public void valid() {
-    var ex = assertThrows(IllegalStateException.class, () -> EmailAddress
-        .of("null"));
+    var ex = assertThrows(IllegalStateException.class, () -> EmailAddress.of("null"));
     assertThat(ex).hasMessageThat().contains("address");
   }
 

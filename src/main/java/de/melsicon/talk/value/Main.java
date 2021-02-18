@@ -51,8 +51,8 @@ public final class Main {
         GIVEN_NAME,
         SURNAME,
         List.of(
-            new de.melsicon.talk.value.simple.kotlin.EmailAddress(EMAIL),
-            new de.melsicon.talk.value.simple.kotlin.EmailAddress(EMAIL2)));
+            de.melsicon.talk.value.simple.kotlin.EmailAddress.of(EMAIL),
+            de.melsicon.talk.value.simple.kotlin.EmailAddress.of(EMAIL2)));
   }
 
   private static de.melsicon.talk.value.simple.lombok.Person lombok() {

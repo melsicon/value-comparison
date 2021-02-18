@@ -8,7 +8,7 @@ import org.immutables.value.Value;
 /** A (validated) e-mail address. */
 @Immutable
 @Value.Style(passAnnotations = {Immutable.class})
-@Value.Immutable
+@Value.Immutable(builder = false)
 public abstract class EmailAddress {
   private static final EmailValidator EMAIL_VALIDATOR = EmailValidator.getInstance();
 
@@ -21,16 +21,7 @@ public abstract class EmailAddress {
    * @return An e-mail address
    */
   public static EmailAddress of(String address) {
-    return builder().address(address).build();
-  }
-
-  /**
-   * Creates an e-mail address builder.
-   *
-   * @return A new builder
-   */
-  public static ImmutableEmailAddress.Builder builder() {
-    return ImmutableEmailAddress.builder();
+    return ImmutableEmailAddress.of(address);
   }
 
   /**
@@ -38,6 +29,7 @@ public abstract class EmailAddress {
    *
    * @return The address.
    */
+  @Value.Parameter
   public abstract String address();
 
   @Value.Check
