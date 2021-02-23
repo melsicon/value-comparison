@@ -3,9 +3,9 @@ package de.melsicon.talk.value.inheritance.lombok;
 import com.google.errorprone.annotations.Immutable;
 import de.melsicon.talk.value.simple.lombok.Person;
 import lombok.EqualsAndHashCode;
-import lombok.NonNull;
 import lombok.Value;
 import lombok.experimental.SuperBuilder;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 @SuppressWarnings({
   "MissingOverride",
@@ -13,6 +13,7 @@ import lombok.experimental.SuperBuilder;
   "MultiVariableDeclaration",
   "NullAway",
   "ParameterName",
+  "UnnecessarilyFullyQualified",
   "Var",
 })
 @Immutable
@@ -20,6 +21,5 @@ import lombok.experimental.SuperBuilder;
 @EqualsAndHashCode(callSuper = true)
 @Value
 public class SoldMovieTicket extends MovieTicket {
-  // This needs to be the Lombok annotation
   @NonNull Person owner;
 }

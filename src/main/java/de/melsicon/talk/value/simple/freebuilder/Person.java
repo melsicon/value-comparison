@@ -1,6 +1,6 @@
 package de.melsicon.talk.value.simple.freebuilder;
 
-import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableSet;
 import java.util.Arrays;
 import java.util.Optional;
 import org.inferred.freebuilder.FreeBuilder;
@@ -34,9 +34,9 @@ public interface Person {
   /**
    * Email addresses this person is reachable under.
    *
-   * @return An immutable list of email addresses
+   * @return An immutable set of email addresses
    */
-  ImmutableList<EmailAddress> email();
+  ImmutableSet<EmailAddress> email();
 
   /** Builder of a person instance */
   class Builder extends Person_Builder {

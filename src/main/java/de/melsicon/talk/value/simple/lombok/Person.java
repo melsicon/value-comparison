@@ -1,12 +1,12 @@
 package de.melsicon.talk.value.simple.lombok;
 
-import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableSet;
 import com.google.errorprone.annotations.Immutable;
 import java.util.Optional;
 import lombok.Builder;
-import lombok.NonNull;
 import lombok.Singular;
 import lombok.Value;
+import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 /** Representation of a person. */
@@ -21,7 +21,6 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 @Immutable
 public class Person {
   /** The given name of this person. Everyone has one. */
-  // This needs to be the Lombok annotation
   @NonNull String givenName;
 
   /** The surname name of this person. Optional, i.e for royalty. */
@@ -31,14 +30,14 @@ public class Person {
 
   /** Email addresses this person is reachable under. */
   @Singular("email")
-  ImmutableList<EmailAddress> email;
+  ImmutableSet<EmailAddress> email;
 
   /**
    * The surname name of this person. Optional, i.e for royalty.
    *
    * @return An optional name
    */
-  public Optional<String> getSurname() {
+  public Optional<String> surname() {
     return Optional.ofNullable(surname);
   }
 }

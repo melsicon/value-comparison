@@ -10,5 +10,12 @@ package de.melsicon.talk.value.simple.kotlin
 data class Person(
     val givenName: String,
     val surname: String?,
-    val email: List<EmailAddress> = listOf()
-)
+    val email: Set<EmailAddress> = emptySet()
+) {
+  companion object {
+    @JvmStatic
+    fun of(givenName: String,
+           surname: String?,
+           vararg email: String) = Person(givenName, surname, email.asIterable().map { EmailAddress.of(it) }.toSet())
+  }
+}

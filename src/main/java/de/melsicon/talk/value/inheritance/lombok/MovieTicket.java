@@ -1,16 +1,17 @@
 package de.melsicon.talk.value.inheritance.lombok;
 
 import com.google.errorprone.annotations.Immutable;
-import lombok.NonNull;
 import lombok.Value;
 import lombok.experimental.NonFinal;
 import lombok.experimental.SuperBuilder;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 @SuppressWarnings({
   "MissingSummary",
   "MultiVariableDeclaration",
   "NullAway",
   "ParameterName",
+  "UnnecessarilyFullyQualified",
   "Var",
 })
 @Immutable
@@ -18,7 +19,6 @@ import lombok.experimental.SuperBuilder;
 @NonFinal
 @Value
 public class MovieTicket {
-  // This needs to be the Lombok annotation
   @NonNull String movieName;
 
   long serial;

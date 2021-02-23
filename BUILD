@@ -1,5 +1,7 @@
 load("@rules_java//java:defs.bzl", "java_binary")
 
+exports_files(["lombok.config"])
+
 java_binary(
     name = "value-comparison",
     data = [

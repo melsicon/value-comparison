@@ -7,3 +7,5 @@ and this project adheres to https://semver.org/spec/v2.0.0.html[Semantic Version
 == [Unreleased]
 === Added
 - `+EmailAddress+` with validation.
+- Add lombok configuration
+- Make emails a set, not a list

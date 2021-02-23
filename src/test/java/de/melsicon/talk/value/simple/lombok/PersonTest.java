@@ -17,22 +17,22 @@ public final class PersonTest {
             .email(EmailAddress.of("peter.pan@example.com"))
             .build();
 
-    assertThat(person.getGivenName()).isEqualTo("Peter");
+    assertThat(person.givenName()).isEqualTo("Peter");
 
-    assertThat(person.getSurname()).hasValue("Pan");
+    assertThat(person.surname()).hasValue("Pan");
 
-    assertThat(person.getEmail()).containsExactly(EmailAddress.of("peter.pan@example.com"));
+    assertThat(person.email()).containsExactly(EmailAddress.of("peter.pan@example.com"));
   }
 
   @Test
   public void defaults() {
     var person = Person.builder().givenName("Charles").build();
 
-    assertThat(person.getGivenName()).isEqualTo("Charles");
+    assertThat(person.givenName()).isEqualTo("Charles");
 
-    assertThat(person.getSurname()).isEmpty();
+    assertThat(person.surname()).isEmpty();
 
-    assertThat(person.getEmail()).isEmpty();
+    assertThat(person.email()).isEmpty();
   }
 
   @Test
@@ -44,7 +44,7 @@ public final class PersonTest {
   @Test
   @SuppressWarnings({"NullAway", "argument.type.incompatible"})
   public void notNull() {
-    var ex = assertThrows(NullPointerException.class, () -> Person.builder().givenName(null));
+    var ex = assertThrows(NullPointerException.class, () -> Person.builder().givenName(null).build());
     assertThat(ex).hasMessageThat().contains("givenName");
   }
 }

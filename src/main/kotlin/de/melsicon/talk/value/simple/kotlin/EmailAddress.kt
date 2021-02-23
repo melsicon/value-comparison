@@ -2,7 +2,7 @@ package de.melsicon.talk.value.simple.kotlin
 
 import org.apache.commons.validator.routines.EmailValidator
 
-val EMAIL_VALIDATOR: EmailValidator = EmailValidator.getInstance()
+private val EMAIL_VALIDATOR: EmailValidator = EmailValidator.getInstance()
 
 /**
  * A (validated) e-mail address.

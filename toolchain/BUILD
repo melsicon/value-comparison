@@ -178,6 +178,9 @@ java_plugin(
 
 java_library(
     name = "lombok",
+    data = [
+        "//:lombok.config",
+    ],
     exported_plugins = ["lombok_processor"],
     neverlink = True,
     visibility = ["//visibility:public"],

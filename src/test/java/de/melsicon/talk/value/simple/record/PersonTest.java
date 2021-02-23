@@ -3,14 +3,14 @@ package de.melsicon.talk.value.simple.record;
 import static com.google.common.truth.Truth.assertThat;
 import static org.junit.Assert.assertThrows;
 
-import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableSet;
 import org.junit.Test;
 
 public final class PersonTest {
   @Test
   public void creation() {
     var person =
-        new Person("Peter", "Pan", ImmutableList.of(EmailAddress.of("peter.pan@example.com")));
+        new Person("Peter", "Pan", ImmutableSet.of(EmailAddress.of("peter.pan@example.com")));
 
     assertThat(person.givenName()).isEqualTo("Peter");
 
@@ -21,7 +21,7 @@ public final class PersonTest {
 
   @Test
   public void defaults() {
-    var person = new Person("Charles", null, ImmutableList.of());
+    var person = new Person("Charles", null, ImmutableSet.of());
 
     assertThat(person.givenName()).isEqualTo("Charles");
 

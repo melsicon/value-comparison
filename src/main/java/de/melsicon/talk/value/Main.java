@@ -1,7 +1,7 @@
 package de.melsicon.talk.value;
 
 import com.google.common.flogger.FluentLogger;
-import java.util.List;
+import de.melsicon.talk.value.simple.lombok.EmailAddress;
 
 public final class Main {
   private static final FluentLogger log = FluentLogger.forEnclosingClass();
@@ -47,20 +47,15 @@ public final class Main {
   }
 
   private static de.melsicon.talk.value.simple.kotlin.Person kotlin() {
-    return new de.melsicon.talk.value.simple.kotlin.Person(
-        GIVEN_NAME,
-        SURNAME,
-        List.of(
-            de.melsicon.talk.value.simple.kotlin.EmailAddress.of(EMAIL),
-            de.melsicon.talk.value.simple.kotlin.EmailAddress.of(EMAIL2)));
+    return de.melsicon.talk.value.simple.kotlin.Person.of(GIVEN_NAME, SURNAME, EMAIL, EMAIL2);
   }
 
   private static de.melsicon.talk.value.simple.lombok.Person lombok() {
     return de.melsicon.talk.value.simple.lombok.Person.builder()
         .givenName(GIVEN_NAME)
         .surname(SURNAME)
-        .email(de.melsicon.talk.value.simple.lombok.EmailAddress.of(EMAIL))
-        .email(de.melsicon.talk.value.simple.lombok.EmailAddress.of(EMAIL2))
+        .email(EmailAddress.of(EMAIL))
+        .email(EmailAddress.of(EMAIL2))
         .build();
   }
 

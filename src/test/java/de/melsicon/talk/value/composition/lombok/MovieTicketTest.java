@@ -23,7 +23,7 @@ public final class MovieTicketTest {
             .owner(Person.builder().givenName("Charles").build())
             .build();
 
-    return ImmutableMap.of(soldTicket.getTicket(), soldTicket);
+    return ImmutableMap.of(soldTicket.ticket(), soldTicket);
   }
 
   @Test
@@ -36,6 +36,6 @@ public final class MovieTicketTest {
     assertThat(tickets).containsKey(ticket1);
     assertThat(tickets).doesNotContainKey(ticket2);
 
-    assertThat(Objects.requireNonNull(tickets.get(ticket1)).getTicket()).isEqualTo(ticket1);
+    assertThat(Objects.requireNonNull(tickets.get(ticket1)).ticket()).isEqualTo(ticket1);
   }
 }

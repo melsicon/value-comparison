@@ -5,6 +5,7 @@ import java.util
 import org.checkerframework.checker.nullness.qual.Nullable
 
 import scala.annotation.varargs
+import scala.collection.immutable
 import scala.jdk.CollectionConverters._
 import scala.jdk.OptionConverters._
 
@@ -21,14 +22,14 @@ object Person {
     Person(
       util.Objects.requireNonNull(givenName),
       Option(surname),
-      email.map(EmailAddress.of)
+      email.map(EmailAddress.of).toSet
     )
 }
 
 final case class Person(
     givenName: String,
     surname: Option[String] = None,
-    email: Seq[EmailAddress] = Seq()
+    email: immutable.Set[EmailAddress] = Set.empty
 ) {
 
   /** Java API: Construct a person
@@ -45,7 +46,7 @@ final case class Person(
     this(
       util.Objects.requireNonNull(givenName),
       Option(surname),
-      if (email == null) Seq.empty else Seq.from(email.asScala)
+      if (email == null) Set.empty[EmailAddress] else Set.from(email.asScala)
     )
   }
 
@@ -63,7 +64,7 @@ final case class Person(
 
   /** Java API: Email addresses this person is reachable under.
     *
-    * @return An immutable list of email addresses
+    * @return An immutable set of email addresses
     */
-  def getEmail: util.List[EmailAddress] = email.asJava
+  def getEmail: util.Set[EmailAddress] = email.asJava
 }

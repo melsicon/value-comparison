@@ -1,7 +1,7 @@
 package de.melsicon.talk.value.simple.autovalue;
 
 import com.google.auto.value.AutoValue;
-import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableSet;
 import com.google.errorprone.annotations.Immutable;
 import java.util.Arrays;
 import java.util.Optional;
@@ -11,6 +11,8 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 @Immutable
 @AutoValue
 public abstract class Person {
+  private static final EmailAddress[] NO_EMAIL = {};
+
   /* package */ Person() {}
 
   /**
@@ -20,7 +22,7 @@ public abstract class Person {
    */
   public static Builder builder() {
     // Provide a default for email, making it optional
-    return new AutoValue_Person.Builder().email(new EmailAddress[] {});
+    return new AutoValue_Person.Builder().email(NO_EMAIL);
   }
 
   /**
@@ -40,9 +42,9 @@ public abstract class Person {
   /**
    * Email addresses this person is reachable under.
    *
-   * @return An immutable list of email addresses
+   * @return An immutable set of email addresses
    */
-  public abstract ImmutableList<EmailAddress> email();
+  public abstract ImmutableSet<EmailAddress> email();
 
   /** Builder of a person instance */
   @AutoValue.Builder
@@ -89,7 +91,7 @@ public abstract class Person {
      */
     public final Builder email(String... email) {
       return email(
-          Arrays.stream(email).map(EmailAddress::of).collect(ImmutableList.toImmutableList()));
+          Arrays.stream(email).map(EmailAddress::of).collect(ImmutableSet.toImmutableSet()));
     }
 
     /**

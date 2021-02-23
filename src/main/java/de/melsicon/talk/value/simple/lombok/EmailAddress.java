@@ -2,13 +2,14 @@ package de.melsicon.talk.value.simple.lombok;
 
 import com.google.common.base.Preconditions;
 import com.google.errorprone.annotations.Immutable;
-import lombok.NonNull;
 import lombok.Value;
 import org.apache.commons.validator.routines.EmailValidator;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 /** A (validated) e-mail address. */
 @SuppressWarnings({
   "MultiVariableDeclaration",
+  "UnnecessarilyFullyQualified",
   "Var",
 })
 @Value(staticConstructor = "of")
@@ -17,7 +18,6 @@ public class EmailAddress {
   private static final EmailValidator EMAIL_VALIDATOR = EmailValidator.getInstance();
 
   /** The e-mail address. */
-  // This needs to be the Lombok annotation
   @NonNull String address;
 
   /* package */ EmailAddress(String address) {

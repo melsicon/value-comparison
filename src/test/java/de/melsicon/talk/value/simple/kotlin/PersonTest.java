@@ -3,13 +3,12 @@ package de.melsicon.talk.value.simple.kotlin;
 import static com.google.common.truth.Truth.assertThat;
 import static org.junit.Assert.assertThrows;
 
-import java.util.List;
 import org.junit.Test;
 
 public final class PersonTest {
   @Test
   public void creation() {
-    var person = new Person("Peter", "Pan", List.of(EmailAddress.of("peter.pan@example.com")));
+    var person = Person.of("Peter", "Pan", "peter.pan@example.com");
 
     assertThat(person.getGivenName()).isEqualTo("Peter");
 
@@ -20,7 +19,7 @@ public final class PersonTest {
 
   @Test
   public void defaults() {
-    var person = new Person("Charles", null, List.of());
+    var person = Person.of("Charles", null);
 
     assertThat(person.getGivenName()).isEqualTo("Charles");
 
@@ -32,7 +31,7 @@ public final class PersonTest {
   @Test
   @SuppressWarnings({"NullAway", "argument.type.incompatible"})
   public void notNull() {
-    var ex = assertThrows(NullPointerException.class, () -> new Person(null, null, null));
+    var ex = assertThrows(NullPointerException.class, () -> Person.of(null, null));
     assertThat(ex).hasMessageThat().contains("givenName");
   }
 }

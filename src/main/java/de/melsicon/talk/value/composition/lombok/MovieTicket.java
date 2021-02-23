@@ -2,8 +2,8 @@ package de.melsicon.talk.value.composition.lombok;
 
 import com.google.errorprone.annotations.Immutable;
 import lombok.Builder;
-import lombok.NonNull;
 import lombok.Value;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 @SuppressWarnings({
   "FieldMissingNullable",
@@ -12,13 +12,13 @@ import lombok.Value;
   "NullAway",
   "ObjectToString",
   "ParameterName",
+  "UnnecessarilyFullyQualified",
   "Var",
 })
 @Immutable
 @Builder
 @Value
 public class MovieTicket {
-  // This needs to be the Lombok annotation
   @NonNull String movieName;
 
   long serial;

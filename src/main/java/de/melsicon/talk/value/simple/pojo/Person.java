@@ -1,6 +1,6 @@
 package de.melsicon.talk.value.simple.pojo;
 
-import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableSet;
 import com.google.errorprone.annotations.Immutable;
 import java.util.Arrays;
 import java.util.Objects;
@@ -15,7 +15,7 @@ public final class Person {
 
   private final @Nullable String surname;
 
-  private final ImmutableList<EmailAddress> email;
+  private final ImmutableSet<EmailAddress> email;
 
   /**
    * Creates a Person.
@@ -28,7 +28,7 @@ public final class Person {
       String givenName, @Nullable String surname, @Nullable Iterable<EmailAddress> email) {
     this.givenName = Objects.requireNonNull(givenName, "givenName is a required parameter");
     this.surname = surname;
-    this.email = email == null ? ImmutableList.of() : ImmutableList.copyOf(email);
+    this.email = email == null ? ImmutableSet.of() : ImmutableSet.copyOf(email);
   }
 
   /**
@@ -43,7 +43,7 @@ public final class Person {
     return new Person(
         givenName,
         surname,
-        Arrays.stream(email).map(EmailAddress::of).collect(ImmutableList.toImmutableList()));
+        Arrays.stream(email).map(EmailAddress::of).collect(ImmutableSet.toImmutableSet()));
   }
 
   /**
@@ -67,9 +67,9 @@ public final class Person {
   /**
    * Email addresses this person is reachable under.
    *
-   * @return An immutable list of email addresses
+   * @return An immutable set of email addresses
    */
-  public ImmutableList<EmailAddress> email() {
+  public ImmutableSet<EmailAddress> email() {
     return email;
   }
 

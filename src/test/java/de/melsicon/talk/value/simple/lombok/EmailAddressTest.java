@@ -10,7 +10,7 @@ public class EmailAddressTest {
   public void creation() {
     var email = EmailAddress.of("peter.pan@example.com");
 
-    assertThat(email.getAddress()).isEqualTo("peter.pan@example.com");
+    assertThat(email.address()).isEqualTo("peter.pan@example.com");
   }
 
   @Test
