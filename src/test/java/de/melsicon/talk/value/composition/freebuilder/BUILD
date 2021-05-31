@@ -7,7 +7,6 @@ java_library(
     deps = [
         "//src/main/java/de/melsicon/talk/value/composition/freebuilder",
         "//toolchain:checker",
-        "//toolchain:nullaway",
         "//toolchain:truth",
         "@maven//:com_google_guava_guava",
     ],

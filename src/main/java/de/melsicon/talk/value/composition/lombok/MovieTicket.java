@@ -6,14 +6,12 @@ import lombok.Value;
 import org.checkerframework.checker.nullness.qual.NonNull;
 
 @SuppressWarnings({
-  "FieldMissingNullable",
   "MissingSummary",
   "MultiVariableDeclaration",
-  "NullAway",
-  "ObjectToString",
-  "ParameterName",
   "UnnecessarilyFullyQualified",
   "Var",
+  "allcheckers:type.anno.before",
+  "nullness:initialization.fields.uninitialized",
 })
 @Immutable
 @Builder

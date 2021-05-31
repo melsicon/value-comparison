@@ -39,11 +39,9 @@ just use [source,shell]`brew install bazelbuild/tap/bazelisk`.
 See also https://docs.bazel.build/versions/4.0.0/install-bazelisk.html[Installing Bazel using
 Bazelisk].
 
-Also, Java needs to be https://adoptopenjdk.net/installation.html[installed].
-
 === Main App
 
-The main app simply demonstrates the `toString` method with a simple structure.
+The main app simply demonstrates the `toString()` method with a simple structure.
 Run it with
 
 [source,shell]
@@ -59,3 +57,20 @@ To run all tests, use
 ----
 bazel test //...
 ----
+
+[bibliography]
+== References
+
+* Joshua Bloch.
+https://www.pearson.com/us/higher-education/program/Bloch-Effective-Java-3rd-Edition/PGM1763855.html[Effective Java, 3rd Edition].
+Addison-Wesley Professional. 2018.
+
+* Martin Odersky, Lex Spoon, Bill Venners. https://www.artima.com/lejava/articles/equality.html[How to Write an Equality Method in Java]. 2009
+
+* Dan Bergh Johnsson.
+https://www.infoq.com/presentations/Value-Objects-Dan-Bergh-Johnsson/[Power of Value - Power Use of
+Value Objects in Domain Driven Design]. QCon London. 2009.
+
+* Brian Goetz. https://cr.openjdk.java.net/~briangoetz/amber/datum.html[Data Classes and Sealed Types for Java]. 2019.
+
+* JEP 395. https://openjdk.java.net/jeps/395[Records]. 2020.

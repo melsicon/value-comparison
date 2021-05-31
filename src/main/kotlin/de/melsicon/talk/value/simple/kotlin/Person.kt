@@ -8,14 +8,16 @@ package de.melsicon.talk.value.simple.kotlin
  * @param[email] Email addresses this person is reachable under. Optional.
  */
 data class Person(
-    val givenName: String,
-    val surname: String?,
-    val email: Set<EmailAddress> = emptySet()
+  val givenName: String,
+  val surname: String?,
+  val email: Set<EmailAddress> = emptySet()
 ) {
   companion object {
     @JvmStatic
-    fun of(givenName: String,
-           surname: String?,
-           vararg email: String) = Person(givenName, surname, email.asIterable().map { EmailAddress.of(it) }.toSet())
+    fun of(
+      givenName: String,
+      surname: String?,
+      vararg email: String
+    ) = Person(givenName, surname, email.asIterable().map { EmailAddress.of(it) }.toSet())
   }
 }

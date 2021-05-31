@@ -47,6 +47,7 @@ public interface Person {
      * @param email Emails
      * @return This builder
      */
+    @SuppressWarnings("ParameterPackage")
     public final Builder addEmail(String... email) {
       return addAllEmail(Arrays.stream(email).map(EmailAddress::of));
     }

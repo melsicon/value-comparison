@@ -3,7 +3,6 @@ package de.melsicon.talk.value.simple.immutables;
 import com.google.common.collect.ImmutableSet;
 import com.google.errorprone.annotations.Immutable;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Optional;
 import org.immutables.value.Value;
 
@@ -42,7 +41,7 @@ public abstract class Person {
    *
    * @return An immutable set of email addresses
    */
-  public abstract List<EmailAddress> email();
+  public abstract ImmutableSet<EmailAddress> email();
 
   public abstract static class Builder {
     public abstract ImmutablePerson.Builder addAllEmail(Iterable<? extends EmailAddress> elements);

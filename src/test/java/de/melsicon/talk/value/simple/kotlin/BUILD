@@ -7,7 +7,6 @@ java_library(
     deps = [
         "//src/main/kotlin/de/melsicon/talk/value/simple/kotlin",
         "//toolchain:checker",
-        "//toolchain:nullaway",
         "//toolchain:truth",
         "@com_github_jetbrains_kotlin//:kotlin-stdlib",
         "@maven//:com_google_errorprone_error_prone_annotations",

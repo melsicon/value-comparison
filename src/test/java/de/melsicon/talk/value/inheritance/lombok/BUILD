@@ -6,7 +6,6 @@ java_library(
     srcs = glob(["*.java"]),
     deps = [
         "//src/main/java/de/melsicon/talk/value/inheritance/lombok",
-        "//toolchain:nullaway",
         "//toolchain:truth",
         "@maven//:com_google_guava_guava",
     ],

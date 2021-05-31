@@ -6,8 +6,7 @@ java_library(
     srcs = glob(["*.java"]),
     deps = [
         "//src/main/java/de/melsicon/talk/value/composition/immutables",
-        # "//toolchain:checker",
-        "//toolchain:nullaway",
+        "//toolchain:checker",
         "@maven//:com_google_guava_guava",
         "//toolchain:truth",
     ],

@@ -30,7 +30,7 @@ public final class PersonTest {
   }
 
   @Test
-  @SuppressWarnings({"NullAway", "argument.type.incompatible"})
+  @SuppressWarnings("nullness:argument")
   public void notNull() {
     assertThrows(NullPointerException.class, () -> Person.of(null, null));
   }

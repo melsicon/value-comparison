@@ -13,7 +13,6 @@ java_library(
         "//src/main/kotlin/de/melsicon/talk/value/simple/kotlin",
         "//src/main/scala/de/melsicon/talk/value/simple/scala",
         "//toolchain:checker",
-        "//toolchain:nullaway",
         "@maven//:com_google_code_findbugs_jsr305",
         "@maven//:com_google_errorprone_error_prone_annotations",
         "@maven//:com_google_flogger_flogger",

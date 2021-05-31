@@ -6,7 +6,6 @@ import static org.junit.Assert.assertThrows;
 
 import org.junit.Test;
 
-@SuppressWarnings("NullAway")
 public final class PersonTest {
   @Test
   public void creation() {
@@ -42,9 +41,10 @@ public final class PersonTest {
   }
 
   @Test
-  @SuppressWarnings({"NullAway", "argument.type.incompatible"})
+  @SuppressWarnings("nullness:argument")
   public void notNull() {
-    var ex = assertThrows(NullPointerException.class, () -> Person.builder().givenName(null).build());
+    var ex =
+        assertThrows(NullPointerException.class, () -> Person.builder().givenName(null).build());
     assertThat(ex).hasMessageThat().contains("givenName");
   }
 }
