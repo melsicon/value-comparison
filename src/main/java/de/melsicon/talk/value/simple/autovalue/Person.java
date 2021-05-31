@@ -95,6 +95,13 @@ public abstract class Person {
     }
 
     /**
+     * Email addresses this person is reachable under. Optional.
+     *
+     * @return An {@link ImmutableSet} builder
+     */
+    public abstract ImmutableSet.Builder<EmailAddress> emailBuilder();
+
+    /**
      * Constructs a new person with the given parameters.
      *
      * @return A person

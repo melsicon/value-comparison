@@ -11,10 +11,10 @@ import org.checkerframework.checker.nullness.qual.NonNull;
   "MissingOverride",
   "MissingSummary",
   "MultiVariableDeclaration",
-  "NullAway",
-  "ParameterName",
   "UnnecessarilyFullyQualified",
   "Var",
+  "allcheckers:type.anno.before",
+  "nullness:initialization.field.uninitialized",
 })
 @Immutable
 @SuperBuilder

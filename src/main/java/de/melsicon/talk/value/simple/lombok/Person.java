@@ -13,8 +13,11 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 @SuppressWarnings({
   "FieldMissingNullable",
   "MultiVariableDeclaration",
-  "ObjectToString",
+  "UnnecessarilyFullyQualified",
   "Var",
+  "allcheckers:type.anno.before",
+  "nullness:assignment",
+  "nullness:initialization.fields.uninitialized",
 })
 @Value
 @Builder
@@ -24,9 +27,7 @@ public class Person {
   @NonNull String givenName;
 
   /** The surname name of this person. Optional, i.e for royalty. */
-  @SuppressWarnings("type.anno.before.modifier")
-  @Nullable
-  String surname;
+  @Nullable String surname;
 
   /** Email addresses this person is reachable under. */
   @Singular("email")

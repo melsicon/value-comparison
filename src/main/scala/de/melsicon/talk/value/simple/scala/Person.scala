@@ -1,9 +1,8 @@
 package de.melsicon.talk.value.simple.scala
 
-import java.util
-
 import org.checkerframework.checker.nullness.qual.Nullable
 
+import java.util
 import scala.annotation.varargs
 import scala.collection.immutable
 import scala.jdk.CollectionConverters._

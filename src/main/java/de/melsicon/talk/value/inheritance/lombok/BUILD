@@ -11,7 +11,6 @@ java_library(
         "//src/main/java/de/melsicon/talk/value/simple/lombok",
         "//toolchain:checker",
         "//toolchain:lombok",
-        "//toolchain:nullaway",
         "@maven//:com_google_code_findbugs_jsr305",
         "@maven//:com_google_errorprone_error_prone_annotations",
         "@maven//:com_google_guava_guava",

@@ -11,6 +11,7 @@ import org.checkerframework.checker.nullness.qual.NonNull;
   "MultiVariableDeclaration",
   "UnnecessarilyFullyQualified",
   "Var",
+  "allcheckers:type.anno.before",
 })
 @Value(staticConstructor = "of")
 @Immutable

@@ -1,12 +1,11 @@
 .*
+!/.bazelignore
 !/.bazelrc
 !/.bazelversion
 !/.envrc
 !/.gitattributes
 !/.gitignore
 !/.yamllint
-# idea
-/*.iml
-out/
-# project specific
+!/.github/
 /bazel-*
+/bin/

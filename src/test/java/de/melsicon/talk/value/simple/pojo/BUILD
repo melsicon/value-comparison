@@ -7,7 +7,6 @@ java_library(
     deps = [
         "//src/main/java/de/melsicon/talk/value/simple/pojo",
         "//toolchain:checker",
-        "//toolchain:nullaway",
         "//toolchain:truth",
         "@maven//:com_google_guava_guava",
     ],
