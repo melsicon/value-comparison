@@ -1,5 +1,7 @@
 package de.melsicon.talk.value.simple.immutables;
 
+import static org.immutables.value.Value.Style.ImplementationVisibility.PACKAGE;
+
 import com.google.common.collect.ImmutableSet;
 import com.google.errorprone.annotations.Immutable;
 import java.util.Arrays;
@@ -8,7 +10,9 @@ import org.immutables.value.Value;
 
 /** Representation of a person. */
 @Immutable
-@Value.Style(passAnnotations = {Immutable.class})
+@Value.Style(
+    passAnnotations = {Immutable.class},
+    visibility = PACKAGE)
 @Value.Immutable
 public abstract class Person {
   /* package */ Person() {}
@@ -18,8 +22,8 @@ public abstract class Person {
    *
    * @return A new builder
    */
-  public static ImmutablePerson.Builder builder() {
-    return ImmutablePerson.builder();
+  public static Builder builder() {
+    return new Builder();
   }
 
   /**
@@ -43,9 +47,7 @@ public abstract class Person {
    */
   public abstract ImmutableSet<EmailAddress> email();
 
-  public abstract static class Builder {
-    public abstract ImmutablePerson.Builder addAllEmail(Iterable<? extends EmailAddress> elements);
-
+  public static final class Builder extends ImmutablePerson.Builder {
     /**
      * Email addresses this person is reachable under. Optional. Convenience function mapping {@link
      * String} to {@link EmailAddress}
@@ -53,7 +55,8 @@ public abstract class Person {
      * @param email Emails
      * @return This builder
      */
-    public final ImmutablePerson.Builder addEmail(String... email) {
+    @SuppressWarnings("ParameterPackage")
+    public Builder addEmail(String... email) {
       return addAllEmail(
           Arrays.stream(email).map(EmailAddress::of).collect(ImmutableSet.toImmutableSet()));
     }

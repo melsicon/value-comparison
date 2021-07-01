@@ -89,10 +89,10 @@ maven_install(
         "com.google.flogger:flogger:0.6",
         "com.google.guava:guava:30.1.1-jre",
         "commons-validator:commons-validator:1.7",
-        "org.checkerframework:checker-qual:3.13.0",
-        "org.checkerframework:checker:3.13.0",
-        "org.immutables:value-annotations:2.9.0-beta2",
-        "org.immutables:value-processor:2.9.0-beta2",
+        "org.checkerframework:checker-qual:3.15.0",
+        "org.checkerframework:checker:3.15.0",
+        "org.immutables:value-annotations:2.9.0-beta3",
+        "org.immutables:value-processor:2.9.0-beta3",
         "org.inferred:freebuilder:2.7.0",
         "org.projectlombok:lombok:1.18.20",
         maven.artifact(
@@ -116,7 +116,7 @@ maven_install(
         maven.artifact(
             "org.ow2.asm",
             "asm",
-            "9.1",
+            "9.2",
             testonly = True,
         ),
     ],

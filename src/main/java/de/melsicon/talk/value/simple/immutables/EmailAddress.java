@@ -1,5 +1,7 @@
 package de.melsicon.talk.value.simple.immutables;
 
+import static org.immutables.value.Value.Style.ImplementationVisibility.PACKAGE;
+
 import com.google.common.base.Preconditions;
 import com.google.errorprone.annotations.Immutable;
 import org.apache.commons.validator.routines.EmailValidator;
@@ -7,7 +9,9 @@ import org.immutables.value.Value;
 
 /** A (validated) e-mail address. */
 @Immutable
-@Value.Style(passAnnotations = {Immutable.class})
+@Value.Style(
+    passAnnotations = {Immutable.class},
+    visibility = PACKAGE)
 @Value.Immutable(builder = false)
 public abstract class EmailAddress {
   private static final EmailValidator EMAIL_VALIDATOR = EmailValidator.getInstance();

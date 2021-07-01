@@ -17,8 +17,6 @@ alias(
     visibility = ["//visibility:public"],
 )
 
-"@bazel_tools//tools/jdk:current_java_runtime"
-
 default_java_toolchain(
     name = "toolchain_java11",
     package_configuration = [

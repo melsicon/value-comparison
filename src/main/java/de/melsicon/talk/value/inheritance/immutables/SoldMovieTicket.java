@@ -1,17 +1,23 @@
 package de.melsicon.talk.value.inheritance.immutables;
 
+import static org.immutables.value.Value.Style.ImplementationVisibility.PACKAGE;
+
 import com.google.errorprone.annotations.Immutable;
 import de.melsicon.talk.value.simple.immutables.Person;
 import org.immutables.value.Value;
 
 @SuppressWarnings("immutables:subtype")
 @Immutable
-@Value.Style(passAnnotations = {Immutable.class})
+@Value.Style(
+    passAnnotations = {Immutable.class},
+    visibility = PACKAGE)
 @Value.Immutable
-public interface SoldMovieTicket extends MovieTicket {
-  static ImmutableSoldMovieTicket.Builder builder() {
-    return ImmutableSoldMovieTicket.builder();
+public interface SoldMovieTicket extends MovieTicket, WithSoldMovieTicket {
+  static Builder builder() {
+    return new Builder();
   }
 
   Person owner();
+
+  final class Builder extends ImmutableSoldMovieTicket.Builder {}
 }
