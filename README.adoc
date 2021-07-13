@@ -1,5 +1,15 @@
-= Value Objects in Java Talk
+= Value Objects in Java
+:Author:    Oliver Eikemeier
+:Email:     <eikemeier@fillmore-labs.com>
+:Date:      2021-07
+:Revision:  v0.1
 :toc: macro
+ifdef::env-github[]
+:note-caption: :information_source:
+:tip-caption: :bulb:
+endif::[]
+
+image:https://badge.buildkite.com/570f6859809a2a1ad1ef957dc6c25cc808d4827709d74391de.svg?branch=main[title="Buildkite build status",link=https://buildkite.com/melsicon/value-objects]
 
 Demo code about value objects and how to create them in Java.
 
