@@ -47,9 +47,9 @@ rules_java_toolchains()
 
 http_archive(
     name = "io_bazel_rules_scala",
-    sha256 = "5c97a74dfd1e2012643735311670945f16223935d297a0467ec49fb8d787ef64",
-    strip_prefix = "rules_scala-e7a948ad1948058a7a5ddfbd9d1629d6db839933",
-    url = "https://github.com/bazelbuild/rules_scala/archive/e7a948ad1948058a7a5ddfbd9d1629d6db839933.tar.gz",
+    sha256 = "dce0dbcaabce4e7ae70eb834746d7b0a0ac46738ca827325d5a2190a1fb2224a",
+    strip_prefix = "rules_scala-51d4246c780d7c018050f57cccac050341a1ed11",
+    url = "https://github.com/bazelbuild/rules_scala/archive/51d4246c780d7c018050f57cccac050341a1ed11.tar.gz",
 )
 
 load("@io_bazel_rules_scala//:scala_config.bzl", "scala_config")
