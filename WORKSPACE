@@ -68,8 +68,8 @@ scala_register_toolchains()
 
 http_archive(
     name = "io_bazel_rules_kotlin",
-    sha256 = "eeae65f973b70896e474c57aa7681e444d7a5446d9ec0a59bb88c59fc263ff62",
-    url = "https://github.com/bazelbuild/rules_kotlin/releases/download/v1.5.0-alpha-3/rules_kotlin_release.tgz",
+    sha256 = "e4185409c787c18f332ae83a73827aab6e77058a48ffee0cac01123408cbc89a",
+    url = "https://github.com/bazelbuild/rules_kotlin/releases/download/v1.5.0-beta-2/rules_kotlin_release.tgz",
 )
 
 load("@io_bazel_rules_kotlin//kotlin:kotlin.bzl", "kotlin_repositories", "kt_register_toolchains")
