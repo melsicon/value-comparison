@@ -95,7 +95,10 @@ java_plugin(
 
 java_library(
     name = "checker",
-    exported_plugins = ["nullness_checker", "optional_checker"],
+    exported_plugins = [
+        "nullness_checker",
+        "optional_checker",
+    ],
     neverlink = True,
     visibility = ["//visibility:public"],
     exports = ["@maven//:org_checkerframework_checker_qual"],

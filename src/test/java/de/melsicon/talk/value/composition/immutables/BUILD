@@ -7,8 +7,8 @@ java_library(
     deps = [
         "//src/main/java/de/melsicon/talk/value/composition/immutables",
         "//toolchain:checker",
-        "@maven//:com_google_guava_guava",
         "//toolchain:truth",
+        "@maven//:com_google_guava_guava",
     ],
 )
 

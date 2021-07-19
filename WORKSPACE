@@ -31,17 +31,20 @@ load("@rules_jvm_external//:specs.bzl", "maven")
 
 # ---
 
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+
 http_archive(
-    name = "rules_java",
-    sha256 = "34b41ec683e67253043ab1a3d1e8b7c61e4e8edefbcad485381328c934d072fe",
-    url = "https://github.com/bazelbuild/rules_java/releases/download/4.0.0/rules_java-4.0.0.tar.gz",
+    name = "rules_proto",
+    sha256 = "bc12122a5ae4b517fa423ea03a8d82ea6352d5127ea48cb54bc324e8ab78493c",
+    strip_prefix = "rules_proto-af6481970a34554c6942d993e194a9aed7987780",
+    url = "https://github.com/bazelbuild/rules_proto/archive/af6481970a34554c6942d993e194a9aed7987780.tar.gz",
 )
 
-load("@rules_java//java:repositories.bzl", "rules_java_dependencies", "rules_java_toolchains")
+load("@rules_proto//proto:repositories.bzl", "rules_proto_dependencies", "rules_proto_toolchains")
 
-rules_java_dependencies()
+rules_proto_dependencies()
 
-rules_java_toolchains()
+rules_proto_toolchains()
 
 # ---
 
@@ -82,8 +85,8 @@ kt_register_toolchains()
 
 maven_install(
     artifacts = [
-        "com.google.auto.value:auto-value-annotations:1.8.1",
-        "com.google.auto.value:auto-value:1.8.1",
+        "com.google.auto.value:auto-value-annotations:1.8.2",
+        "com.google.auto.value:auto-value:1.8.2",
         "com.google.errorprone:error_prone_annotations:2.7.1",
         "com.google.flogger:flogger-system-backend:0.6",
         "com.google.flogger:flogger:0.6",
