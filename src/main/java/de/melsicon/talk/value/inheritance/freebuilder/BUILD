@@ -3,7 +3,10 @@ load("@rules_java//java:defs.bzl", "java_library")
 java_library(
     name = "freebuilder",
     srcs = glob(["*.java"]),
-    javacopts = ["-AskipDefs=_Builder$$"],
+    javacopts = [
+        "-AskipDefs=_Builder$$",
+        "-XepExcludedPaths:.*/_javac/.*",
+    ],
     visibility = ["//visibility:public"],
     exports = [
         "//src/main/java/de/melsicon/talk/value/simple/freebuilder",

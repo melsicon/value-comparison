@@ -10,7 +10,7 @@ java_library(
         "//src/main/java/de/melsicon/talk/value/simple/immutables",
         "//src/main/java/de/melsicon/talk/value/simple/lombok",
         "//src/main/java/de/melsicon/talk/value/simple/pojo",
-        "//src/main/kotlin/de/melsicon/talk/value/simple/kotlin",
+        "//src/main/java/de/melsicon/talk/value/simple/record",
         "//src/main/scala/de/melsicon/talk/value/simple/scala",
         "//toolchain:checker",
         "@maven//:com_google_errorprone_error_prone_annotations",

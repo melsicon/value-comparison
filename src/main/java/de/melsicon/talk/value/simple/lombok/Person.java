@@ -13,6 +13,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 @SuppressWarnings({
   "FieldMissingNullable",
   "MultiVariableDeclaration",
+  "SameNameButDifferent",
   "UnnecessarilyFullyQualified",
   "Var",
   "allcheckers:type.anno.before",

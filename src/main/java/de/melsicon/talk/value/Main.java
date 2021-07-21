@@ -1,7 +1,6 @@
 package de.melsicon.talk.value;
 
 import com.google.common.flogger.FluentLogger;
-import de.melsicon.talk.value.simple.lombok.EmailAddress;
 
 public final class Main {
   private static final FluentLogger log = FluentLogger.forEnclosingClass();
@@ -16,9 +15,9 @@ public final class Main {
     log.atInfo().log("Autovalue: %s", autovalue());
     log.atInfo().log("FreeBuilder: %s", freebuilder());
     log.atInfo().log("Immutables: %s", immutables());
-    log.atInfo().log("Kotlin: %s", kotlin());
     log.atInfo().log("Lombok: %s", lombok());
     log.atInfo().log("Pojo: %s", pojo());
+    log.atInfo().log("Record: %s", record());
     log.atInfo().log("Scala: %s", scala());
   }
 
@@ -46,21 +45,22 @@ public final class Main {
         .build();
   }
 
-  private static de.melsicon.talk.value.simple.kotlin.Person kotlin() {
-    return de.melsicon.talk.value.simple.kotlin.Person.of(GIVEN_NAME, SURNAME, EMAIL, EMAIL2);
-  }
-
+  @SuppressWarnings("UnnecessarilyFullyQualified")
   private static de.melsicon.talk.value.simple.lombok.Person lombok() {
     return de.melsicon.talk.value.simple.lombok.Person.builder()
         .givenName(GIVEN_NAME)
         .surname(SURNAME)
-        .email(EmailAddress.of(EMAIL))
-        .email(EmailAddress.of(EMAIL2))
+        .email(de.melsicon.talk.value.simple.lombok.EmailAddress.of(EMAIL))
+        .email(de.melsicon.talk.value.simple.lombok.EmailAddress.of(EMAIL2))
         .build();
   }
 
   private static de.melsicon.talk.value.simple.pojo.Person pojo() {
     return de.melsicon.talk.value.simple.pojo.Person.of(GIVEN_NAME, SURNAME, EMAIL, EMAIL2);
+  }
+
+  private static de.melsicon.talk.value.simple.record.Person record() {
+    return de.melsicon.talk.value.simple.record.Person.of(GIVEN_NAME, SURNAME, EMAIL, EMAIL2);
   }
 
   private static de.melsicon.talk.value.simple.scala.Person scala() {

@@ -1,7 +1,8 @@
 # Lombok workaround: https://github.com/bazelbuild/bazel/issues/12837
 build --nojava_header_compilation
 
-build --java_toolchain=//toolchain:toolchain_java11
-build --javabase=//toolchain:remote_jdk15
-test --javabase=//toolchain:remote_jdk15
-run --javabase=//toolchain:remote_jdk15
+build --java_language_version=16
+build --tool_java_runtime_version=remotejdk_16
+
+test --java_runtime_version=remotejdk_16
+run --java_runtime_version=remotejdk_16

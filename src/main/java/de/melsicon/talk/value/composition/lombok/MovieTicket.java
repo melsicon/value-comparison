@@ -8,6 +8,7 @@ import org.checkerframework.checker.nullness.qual.NonNull;
 @SuppressWarnings({
   "MissingSummary",
   "MultiVariableDeclaration",
+  "SameNameButDifferent",
   "UnnecessarilyFullyQualified",
   "Var",
   "allcheckers:type.anno.before",

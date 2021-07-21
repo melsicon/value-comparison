@@ -1,33 +1,17 @@
 load("@bazel_tools//tools/jdk:default_java_toolchain.bzl", "default_java_toolchain")
 load("@rules_java//java:defs.bzl", "java_library", "java_package_configuration", "java_plugin")
 
-alias(
-    name = "remote_jdk15",
-    actual = select(
-        {
-            "@bazel_tools//src/conditions:darwin_x86_64": "@remotejdk15_macos//:jdk",
-            "@bazel_tools//src/conditions:darwin_arm64": "@remotejdk15_macos_aarch64//:jdk",
-            "@bazel_tools//src/conditions:windows": "@remotejdk15_win//:jdk",
-            "@bazel_tools//src/conditions:linux_x86_64": "@remotejdk15_linux//:jdk",
-            "@bazel_tools//src/conditions:linux_aarch64": "@remotejdk15_linux_aarch64//:jdk",
-        },
-        no_match_error = "Could not find a JDK for host execution environment, please explicitly" +
-                         " provide one using `--host_javabase.`",
-    ),
-    visibility = ["//visibility:public"],
-)
-
 default_java_toolchain(
-    name = "toolchain_java11",
+    name = "toolchain_java16",
+    configuration = dict(),
+    java_runtime = "@bazel_tools//tools/jdk:remotejdk_16",
     package_configuration = [
         ":src_package_configuration",
         ":external_package_configuration",
     ],
-    # java_runtime = ":remote_jdk15",
-    source_version = "11",
-    target_version = "11",
+    source_version = "16",
+    target_version = "16",
     visibility = ["//visibility:public"],
-    # javacopts = ["--enable-preview"],
     xlint = [
         "all",
         "-processing",
@@ -42,7 +26,6 @@ java_package_configuration(
         "-AshowSuppressWarningsStrings",
         "-Werror",
         "-Xpkginfo:always",
-        "-XepExcludedPaths:.*/_javac/.*",
         "-XepDisableWarningsInGeneratedCode",
         "-XepAllDisabledChecksAsWarnings",
         "-Xep:Java7ApiChecker:OFF",

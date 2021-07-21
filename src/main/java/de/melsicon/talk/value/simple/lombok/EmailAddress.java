@@ -9,6 +9,7 @@ import org.checkerframework.checker.nullness.qual.NonNull;
 /** A (validated) e-mail address. */
 @SuppressWarnings({
   "MultiVariableDeclaration",
+  "SameNameButDifferent",
   "UnnecessarilyFullyQualified",
   "Var",
   "allcheckers:type.anno.before",
