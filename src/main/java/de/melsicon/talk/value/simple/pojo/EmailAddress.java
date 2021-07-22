@@ -45,16 +45,10 @@ public final class EmailAddress {
 
   @Override
   public boolean equals(@Nullable Object obj) {
-    if (obj == this) {
-      return true;
-    }
-
-    if (!(obj instanceof EmailAddress)) {
-      return false;
-    }
-
-    var e = (EmailAddress) obj;
-    return address.equals(e.address);
+    return obj == this || (
+        obj instanceof EmailAddress e
+        && address.equals(e.address)
+    );
   }
 
   @Override

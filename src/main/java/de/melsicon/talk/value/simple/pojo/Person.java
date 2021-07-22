@@ -80,18 +80,12 @@ public final class Person {
 
   @Override
   public boolean equals(@Nullable Object obj) {
-    if (obj == this) {
-      return true;
-    }
-
-    if (!(obj instanceof Person)) {
-      return false;
-    }
-
-    var p = (Person) obj;
-    return givenName.equals(p.givenName)
+    return obj == this || (
+        obj instanceof Person p
+        && givenName.equals(p.givenName)
         && Objects.equals(surname, p.surname)
-        && email.equals(p.email);
+        && email.equals(p.email)
+    );
   }
 
   @Override
