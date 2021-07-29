@@ -9,8 +9,8 @@ public record EmailAddress(String address) {
   private static final EmailValidator EMAIL_VALIDATOR = EmailValidator.getInstance();
 
   public EmailAddress {
-    Preconditions
-        .checkState(EMAIL_VALIDATOR.isValid(address), "%s is not a valid e-mail address", address);
+    Preconditions.checkState(
+        EMAIL_VALIDATOR.isValid(address), "%s is not a valid e-mail address", address);
   }
 
   /**

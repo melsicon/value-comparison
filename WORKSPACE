@@ -77,7 +77,8 @@ http_archive(
     url = "https://github.com/bazelbuild/rules_kotlin/releases/download/v1.5.0-beta-3/rules_kotlin_release.tgz",
 )
 
-load("@io_bazel_rules_kotlin//kotlin:kotlin.bzl", "kotlin_repositories", "kt_register_toolchains")
+load("@io_bazel_rules_kotlin//kotlin:repositories.bzl", "kotlin_repositories")
+load("@io_bazel_rules_kotlin//kotlin:kotlin.bzl", "kt_register_toolchains")
 
 kotlin_repositories()
 
@@ -89,7 +90,7 @@ maven_install(
     artifacts = [
         "com.google.auto.value:auto-value-annotations:1.8.2",
         "com.google.auto.value:auto-value:1.8.2",
-        "com.google.errorprone:error_prone_annotations:2.7.1",
+        "com.google.errorprone:error_prone_annotations:2.8.0",
         "com.google.flogger:flogger-system-backend:0.6",
         "com.google.flogger:flogger:0.6",
         "com.google.guava:guava:30.1.1-jre",
