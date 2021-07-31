@@ -52,9 +52,9 @@ rules_proto_toolchains()
 
 http_archive(
     name = "io_bazel_rules_scala",
-    sha256 = "3102ab55281dd51d6ae9ca76a44e71cc66d325e8361bd026182ce43099ca7a67",
-    strip_prefix = "rules_scala-7a2c3510cda8cf544f9ce9a621a69ac5fe31ae7e",
-    url = "https://github.com/bazelbuild/rules_scala/archive/7a2c3510cda8cf544f9ce9a621a69ac5fe31ae7e.tar.gz",
+    sha256 = "0f39eb81968ed9c62809ca041bc9283612af97abcfa6b6a5eaae74c52924dbdf",
+    strip_prefix = "rules_scala-c997c444a3a3bb8b6a3f8076a64ab9edb8c918b3",
+    url = "https://github.com/bazelbuild/rules_scala/archive/c997c444a3a3bb8b6a3f8076a64ab9edb8c918b3.tar.gz",
 )
 
 load("@io_bazel_rules_scala//:scala_config.bzl", "scala_config")
