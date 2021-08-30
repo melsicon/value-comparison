@@ -21,9 +21,11 @@ default_java_toolchain(
 java_package_configuration(
     name = "src_package_configuration",
     javacopts = [
+        "-AinvariantArrays",
         "-ArequirePrefixInWarningSuppressions",
         "-AwarnUnneededSuppressions",
         "-AshowSuppressWarningsStrings",
+        "-AsuppressWarnings=allcheckers:type.checking.not.run",
         "-Werror",
         "-Xpkginfo:always",
         "-XepDisableWarningsInGeneratedCode",
@@ -46,9 +48,7 @@ package_group(
 
 java_package_configuration(
     name = "external_package_configuration",
-    javacopts = [
-        "-Xlint:none",
-    ],
+    javacopts = ["-Xlint:none"],
     packages = [":external_package_group"],
 )
 
@@ -196,6 +196,5 @@ java_library(
         "@maven//:com_google_truth_extensions_truth_java8_extension",
         "@maven//:com_google_truth_truth",
         "@maven//:junit_junit",
-        "@maven//:org_ow2_asm_asm",
     ],
 )

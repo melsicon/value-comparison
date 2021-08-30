@@ -33,8 +33,6 @@ load("@rules_jvm_external//:specs.bzl", "maven")
 
 # ---
 
-load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
-
 http_archive(
     name = "rules_proto",
     sha256 = "36476f17a78a4c495b9a9e70bd92d182e6e78db476d90c74bac1f5f19f0d6d04",
@@ -59,7 +57,7 @@ http_archive(
 
 load("@io_bazel_rules_scala//:scala_config.bzl", "scala_config")
 
-scala_config(scala_version = "2.13.3")
+scala_config(scala_version = "2.13.6")
 
 load("@io_bazel_rules_scala//scala:scala.bzl", "scala_repositories")
 
@@ -77,8 +75,8 @@ http_archive(
     url = "https://github.com/bazelbuild/rules_kotlin/releases/download/v1.5.0-beta-3/rules_kotlin_release.tgz",
 )
 
-load("@io_bazel_rules_kotlin//kotlin:repositories.bzl", "kotlin_repositories")
 load("@io_bazel_rules_kotlin//kotlin:kotlin.bzl", "kt_register_toolchains")
+load("@io_bazel_rules_kotlin//kotlin:repositories.bzl", "kotlin_repositories")
 
 kotlin_repositories()
 
@@ -90,13 +88,13 @@ maven_install(
     artifacts = [
         "com.google.auto.value:auto-value-annotations:1.8.2",
         "com.google.auto.value:auto-value:1.8.2",
-        "com.google.errorprone:error_prone_annotations:2.8.0",
+        "com.google.errorprone:error_prone_annotations:2.9.0",
         "com.google.flogger:flogger-system-backend:0.6",
         "com.google.flogger:flogger:0.6",
         "com.google.guava:guava:30.1.1-jre",
         "commons-validator:commons-validator:1.7",
-        "org.checkerframework:checker-qual:3.16.0",
-        "org.checkerframework:checker:3.16.0",
+        "org.checkerframework:checker-qual:3.17.0",
+        "org.checkerframework:checker:3.17.0",
         "org.immutables:value-annotations:2.9.0-beta3",
         "org.immutables:value-processor:2.9.0-beta3",
         "org.inferred:freebuilder:2.7.0",

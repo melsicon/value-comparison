@@ -11,7 +11,6 @@ java_binary(
         "-Djava.util.logging.config.file=conf/logging.properties",
     ],
     main_class = "de.melsicon.talk.value.Main",
-    resources = ["//src/main/resources"],
     runtime_deps = [
         "//src/main/java/de/melsicon/talk/value",
         "@maven//:com_google_flogger_flogger_system_backend",
